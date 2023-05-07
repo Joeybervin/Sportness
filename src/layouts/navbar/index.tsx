@@ -6,28 +6,45 @@ import { NavbarProps } from "./shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 
-const Navbar = ( {selectedAnchor, setSelectedAnchor} : NavbarProps) => {
+const Navbar = ( {isAtTop, selectedAnchor, setSelectedAnchor} : NavbarProps) => {
 
     /* ==== VARIABLES ==== */
-    /* tailwind class */
-    const flexBetween = "flex items-center justify-content";
-    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
 
+    /* styles */
+    const flexBetween = "flex items-center justify-between";
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+    const navbarBackground = !isAtTop ? "bg-primary-100 drop-shadow-md" : ""
+    /* contents */
+    const menuAnchorLinks = ["Accueil", "Avantages", "Nos cours", "Contactez-nous"]
+
+    /* ==== STATES ==== */
+
+    const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
 
 
 
     return (
         <nav>
-            <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`} >
+            <div className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`} >
                 <div className={`${flexBetween} mx-auto w-5/6`}>
                     <div className={`${flexBetween} w-full gap-16`}>
                         {/* LEFT side */}
                         <img src={Logo} alt="logo" />
 
                         {/* RIGHT side */}
+                        {isAboveMediumScreens ? 
                         <div className={`${flexBetween} w-full`}>
-                            <ul className={`${flexBetween} gap-8 text-sm`}>
-                                <AnchorLink anchor="Accueil"
+                            <div className={`${flexBetween} gap-8 text-sm`}>
+                                {menuAnchorLinks.map((link, index) => {
+                                    return (
+                                        <AnchorLink 
+                                        key={index}
+                                        anchor={link}
+                                        selectedAnchor={selectedAnchor}
+                                        setSelectedAnchor={setSelectedAnchor}/>
+                                    )
+                                })}
+                                {/*  <AnchorLink anchor="Accueil"
                                     selectedAnchor={selectedAnchor}
                                     setSelectedAnchor={setSelectedAnchor}/>
                                 <AnchorLink anchor="Avantages"
@@ -38,16 +55,47 @@ const Navbar = ( {selectedAnchor, setSelectedAnchor} : NavbarProps) => {
                                     setSelectedAnchor={setSelectedAnchor}/>
                                 <AnchorLink anchor="Contactez-nous"
                                     selectedAnchor={selectedAnchor}
-                                    setSelectedAnchor={setSelectedAnchor}/>
-                            </ul>
+                                    setSelectedAnchor={setSelectedAnchor}/> */}
+                            </div>
                             <div className={`${flexBetween} gap-8`}>
                                 <a href="#">connexion</a>
-                                <button>Devenir membre</button>
+                                <button className="bg-secondary-500 rounded ">Devenir membre</button>
                             </div>
                         </div>
+                        :
+                        <div>
+                            <button className="rounded-full bg-secondary-500 p-2"
+                            onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                                <Bars3Icon className="h-6 w-6 text-white" />
+                            </ button>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
+            {/* MOBILE MENU MODAL */}
+            {!isAboveMediumScreens && isMenuToggled && (
+                <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-lg">
+                    <div className="flex justify-end p-12">
+                        <button className="rounded-full bg-secondary-500 p-2"
+                        onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                            <XMarkIcon className="h-6 w-6 text-white" />
+                        </button>
+                    </div>
+
+                    <div className="ml-[15%] flex flex-col gap-10 text-2xl">
+                        {menuAnchorLinks.map((link, index) => {
+                            return (
+                                <AnchorLink 
+                                key={index}
+                                anchor={link}
+                                selectedAnchor={selectedAnchor}
+                                setSelectedAnchor={setSelectedAnchor}/>
+                            )
+                        })}
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

@@ -1,5 +1,6 @@
 
 export interface NavbarProps {
+    isAtTop : boolean;
     selectedAnchor: SelectedAnchor;
     setSelectedAnchor: (value: SelectedAnchor) => void;
 }
