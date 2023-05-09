@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
-import { Link as AnchorLink } from "./components/Link";
-import { NavbarProps } from "./shared/types";
+import {Button} from "@/components/Button";
+import { Link as AnchorLink } from "../../components/Link";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { SelectedAnchor } from "../../shared/types";
 
+export interface NavbarProps {
+    isAtTop : boolean;
+    selectedAnchor: SelectedAnchor;
+    setSelectedAnchor: (value: SelectedAnchor) => void;
+}
 
 const Navbar = ( {isAtTop, selectedAnchor, setSelectedAnchor} : NavbarProps) => {
 
@@ -57,9 +63,9 @@ const Navbar = ( {isAtTop, selectedAnchor, setSelectedAnchor} : NavbarProps) => 
                                     selectedAnchor={selectedAnchor}
                                     setSelectedAnchor={setSelectedAnchor}/> */}
                             </div>
-                            <div className={`${flexBetween} gap-8`}>
+                            <div className={`${flexBetween} gap-6`}>
                                 <a href="#">connexion</a>
-                                <button className="bg-secondary-500 rounded ">Devenir membre</button>
+                                <Button>Devenir membre</Button>
                             </div>
                         </div>
                         :

@@ -1,6 +1,7 @@
 import Navbar from '@/layouts/navbar'
+import Home from '@/layouts/home';
 import { useState, useEffect } from 'react'
-import { SelectedAnchor } from "@/layouts/navbar/shared/types"
+import { SelectedAnchor } from "@/shared/types"
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
       isAtTop={isTopOfPage}
       selectedAnchor={selectedAnchor}
       setSelectedAnchor={setSelectedAnchor}/>
+      
+      <Home
+      setSelectedAnchor={setSelectedAnchor} />
     </div>
   )
 }
