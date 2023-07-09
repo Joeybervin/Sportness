@@ -22,7 +22,7 @@ const Button : React.FC<ButtonProps> = ({ children, ...props } ) => {
 const AnchorLinkButton : React.FC<AnchorLinkButtonProps> = ({children, setSelectedAnchor, anchor}) => {
     return (
         <AnchorLink
-        className="rounded-md bg-secondary-500 px-10 py-2 hover:bg-primary-500 hover:text-white"
+        className="rounded-md bg-secondary-500 px-8 py-2 hover:bg-primary-500 hover:text-white"
         onClick={() => setSelectedAnchor(anchor) }
         href={`#${anchor}`}>
             {children}

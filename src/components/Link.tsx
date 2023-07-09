@@ -20,7 +20,6 @@ export const Link = ({anchor, selectedAnchor, setSelectedAnchor, style}: LinkPro
         className={linkStyle}
         href={`#${lowerCaseAnchor}`}
         onClick={() => setSelectedAnchor(lowerCaseAnchor)}>
-
             {anchor}
         </AnchorLink>
     );
