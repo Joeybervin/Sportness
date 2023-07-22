@@ -1,5 +1,8 @@
 import Navbar from '@/layouts/navbar'
 import Home from '@/layouts/home';
+import Benefits from '@/layouts/benefits';
+import OurClasses from '@/layouts/ourClasses';
+import ContactUs from './layouts/contact';
 import { useState, useEffect } from 'react'
 import { SelectedAnchor } from "@/shared/types"
 
@@ -35,6 +38,16 @@ function App() {
       
       <Home
       setSelectedAnchor={setSelectedAnchor} />
+
+      <Benefits
+      setSelectedAnchor={setSelectedAnchor} />
+
+      <OurClasses
+      setSelectedAnchor={setSelectedAnchor} />
+
+      <ContactUs
+      setSelectedAnchor={setSelectedAnchor} />
+
     </div>
   )
 }
