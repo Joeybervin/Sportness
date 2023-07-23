@@ -2,7 +2,7 @@ import { SelectedAnchor } from "@/shared/types";
 import { ReactNode } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children : ReactNode;
 }
 interface AnchorLinkButtonProps extends ButtonProps {
@@ -10,11 +10,15 @@ interface AnchorLinkButtonProps extends ButtonProps {
     anchor : SelectedAnchor;
 }
 
-const Button : React.FC<ButtonProps> = ({ children, ...props } ) => {
+const Button : React.FC<ButtonProps> = ({ type, children, ...props } ) => {
+
+    const buttonType = type === undefined ? 'button' : type;
+
     return (
         <button
             {...props}
-            className="bg-secondary-500 rounded p-1.5 px-4 hover:bg-primary-500 hover:text-white">
+            type={buttonType}
+            className="bg-secondary-500 rounded p-1.5 px-4 hover:bg-primary-500 transition duration-500 hover:text-white">
             {children}
         </button>)
 }

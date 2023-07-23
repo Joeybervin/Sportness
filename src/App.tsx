@@ -1,4 +1,5 @@
 import Navbar from '@/layouts/navbar'
+import Footer from './layouts/footer';
 import Home from '@/layouts/home';
 import Benefits from '@/layouts/benefits';
 import OurClasses from '@/layouts/ourClasses';
@@ -47,6 +48,8 @@ function App() {
 
       <ContactUs
       setSelectedAnchor={setSelectedAnchor} />
+
+      <Footer coco={''}/>
 
     </div>
   )
