@@ -13,7 +13,7 @@ const ContactUs = ({ setSelectedAnchor }: ContactUsProps) => {
 
     const { register, trigger, formState: { errors }} = useForm();
 
-    const onSubmit = async (e:any) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const isValid = await trigger();
 
         if (!isValid) {

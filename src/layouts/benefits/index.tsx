@@ -2,7 +2,7 @@
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png"
 /* ICONS */
 import { HomeModernIcon, UserGroupIcon, AcademicCapIcon } from "@heroicons/react/24/solid";
-/*  */
+/* SHARED */
 import { BenefitType, SelectedAnchor } from '../../shared/types';
 /* ANIMATIONS */
 import { motion } from "framer-motion";

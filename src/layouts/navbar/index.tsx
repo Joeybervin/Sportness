@@ -50,18 +50,6 @@ const Navbar = ( {isAtTop, selectedAnchor, setSelectedAnchor} : NavbarProps) => 
                                         setSelectedAnchor={setSelectedAnchor}/>
                                     )
                                 })}
-                                {/*  <AnchorLink anchor="Accueil"
-                                    selectedAnchor={selectedAnchor}
-                                    setSelectedAnchor={setSelectedAnchor}/>
-                                <AnchorLink anchor="Avantages"
-                                    selectedAnchor={selectedAnchor}
-                                    setSelectedAnchor={setSelectedAnchor}/>
-                                <AnchorLink anchor="Nos cours"
-                                    selectedAnchor={selectedAnchor}
-                                    setSelectedAnchor={setSelectedAnchor}/>
-                                <AnchorLink anchor="Contactez-nous"
-                                    selectedAnchor={selectedAnchor}
-                                    setSelectedAnchor={setSelectedAnchor}/> */}
                             </div>
                             <div className={`${flexBetween} gap-6`}>
                                 <a href="#">connexion</a>
