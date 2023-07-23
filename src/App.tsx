@@ -49,7 +49,7 @@ function App() {
       <ContactUs
       setSelectedAnchor={setSelectedAnchor} />
 
-      <Footer coco={''}/>
+      <Footer/>
 
     </div>
   )
